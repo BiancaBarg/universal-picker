@@ -23,6 +23,17 @@ Maya 2026/2027 have separate Qt 6.5.3 / Qt 6.8.3 canvas checks. These do not rep
 
 One Maya installer is shared by 2025, 2026, and 2027.
 
+## Maya: add the shelf button with Python
+
+After installing, open **Script Editor → Python**, paste these two lines and run them. The UP button appears on your current shelf.
+
+```python
+import universal_picker
+universal_picker.install_shelf_button()
+```
+
+Click **UP** to open the picker. To open it directly from Python, run `import universal_picker; universal_picker.show()`.
+
 ## Blender: start in three steps
 
 1. **Preferences → Get Extensions → menu → Install from Disk**. Choose the Blender ZIP; keep it zipped.
@@ -42,3 +53,4 @@ Maya also provides **Customize** for moving buttons and **How to use** for a sho
 This beta recognizes common controller names. Use **All controls** and **Add selected** for unusual rigs. Blender currently supports armature pose controllers. Full verification details are included in each ZIP.
 
 [Latest release and checksums](https://github.com/BiancaBarg/universal-picker/releases/latest)
+
