@@ -4,16 +4,16 @@ made by Bianca Bargan
 
 A free beta picker for Maya and Blender. Named controls, clear Body / Face / Fingers views, and a separate picker remembered for each character in your scene.
 
-## Download 1.18.1
+## Download 1.18.2
 
 | Application | Download | Verification |
 | --- | --- | --- |
-| Maya 2025 | [Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Verified in Maya 2025.3.2 on macOS, on human and quadruped rigs |
-| Maya 2026 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Beta compatibility build; full Maya runtime test pending |
-| Maya 2027 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Beta compatibility build; full Maya runtime test pending |
-| Blender 5.2.2 LTS | [Blender ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Blender-1.18.1.zip) | Verified on macOS with human and quadruped test armatures |
+| Maya 2025 | [Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.2/UniversalPicker-Maya-1.18.2.zip) | Verified in Maya 2025.3.2 on macOS, on human and quadruped rigs |
+| Maya 2026 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.2/UniversalPicker-Maya-1.18.2.zip) | Verified in Maya 2026.3.3 on macOS, on human and quadruped rigs |
+| Maya 2027 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.2/UniversalPicker-Maya-1.18.2.zip) | Verified in Maya 2027.2 on macOS, on human and quadruped rigs |
+| Blender 5.2.2 LTS | [Blender ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.2/UniversalPicker-Blender-1.18.2.zip) | Verified on macOS with human and quadruped test armatures |
 
-Maya 2026/2027 have separate Qt 6.5.3 / Qt 6.8.3 canvas checks. These do not replace testing inside those Maya versions.
+All three Maya versions passed scene save/reopen, capture/delete, batch Add selected, 764 control targets, 591 visible button clicks, and 51 regression checks. Test animations remained unchanged.
 
 ## Maya: start in three steps
 
@@ -53,4 +53,5 @@ Maya also provides **Customize** for moving buttons and **How to use** for a sho
 This beta recognizes common controller names. Use **All controls** and **Add selected** for unusual rigs. Blender currently supports armature pose controllers. Full verification details are included in each ZIP.
 
 [Latest release and checksums](https://github.com/BiancaBarg/universal-picker/releases/latest)
+
 
