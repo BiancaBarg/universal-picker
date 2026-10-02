@@ -1,152 +1,44 @@
-# Universal Picker for Maya
+# Universal Picker
 
-Universal Picker builds a clean, clickable animation picker from the rig
-controllers you select. It does not require a rig-specific template, naming
-standard, or setup node.
+made by Bianca Bargan
 
-Designed for Autodesk Maya 2022–2026 on Windows, macOS, and Linux. The UI
-supports both PySide2/Qt 5 and PySide6/Qt 6.
+A free beta picker for Maya and Blender. Named controls, clear Body / Face / Fingers views, and a separate picker remembered for each character in your scene.
 
-> **Beta version:** Universal Picker is free and still being improved. Please share
-> your Maya version, operating system, rig type, screenshots, and any misplaced or
-> missed controllers so I can make it work better with more rigs.
+## Download 1.18.1
 
-## Install
+| Application | Download | Verification |
+| --- | --- | --- |
+| Maya 2025 | [Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Verified in Maya 2025.3.2 on macOS, on human and quadruped rigs |
+| Maya 2026 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Beta compatibility build; full Maya runtime test pending |
+| Maya 2027 | [Same Maya ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Maya-1.18.1.zip) | Beta compatibility build; full Maya runtime test pending |
+| Blender 5.2.2 LTS | [Blender ZIP](https://github.com/BiancaBarg/universal-picker/releases/download/v1.18.1/UniversalPicker-Blender-1.18.1.zip) | Verified on macOS with human and quadruped test armatures |
 
-1. Download and unzip `UniversalPicker-1.13.0.zip`.
-2. Keep `install.py`, `UniversalPicker.mod`, and the `UniversalPicker` folder
-   together.
-3. Start Maya.
-4. Drag `install.py` from Explorer/Finder into a Maya viewport.
-5. Click **Open Picker**. A cyan **UP** picture button is added to the current
-   Maya shelf.
+Maya 2026/2027 have separate Qt 6.5.3 / Qt 6.8.3 canvas checks. These do not replace testing inside those Maya versions.
 
-The installer places the module in Maya's user modules folder. It does not
-modify the Maya application.
+## Maya: start in three steps
 
-Universal Picker was made by Bianca Bargan.
+1. Unzip the Maya ZIP. Drag **install.py** into the Maya viewport. Choose **Replace** if updating.
+2. Select your character and click **Capture view**.
+3. Click the named buttons. Save your Maya scene to keep your picker.
 
-## Build a picker
+One Maya installer is shared by 2025, 2026, and 2027.
 
-1. Choose the **Human** or **Quadrupeds** tab.
-2. For a human rig, capture **Body** and **Facial**, adding the matching
-   controllers to each view.
-3. For a quadruped rig, capture **Body Left**, orbit to capture **Body Right**,
-   and then capture **Facial**, adding the matching controllers to each view.
-4. Turn on **Edit Layout** to drag the screenshot into exact alignment, or to
-   move, rename, and delete controller shapes.
-5. Click **Save to Scene**, then save the Maya scene.
+## Blender: start in three steps
 
-Use **Save for Rig** after selecting one controller from the rig to keep a
-reusable picker preset in your Maya user folder. In another scene, select one
-controller from the same referenced rig and click **Load for Rig**. The rig
-source-file identity is used, so changing its namespace does not break the
-preset.
+1. **Preferences → Get Extensions → menu → Install from Disk**. Choose the Blender ZIP; keep it zipped.
+2. In the 3D View, press **N → Picker**. Select your character, then **Use selected rig → Open picker**.
+3. Click the named buttons. Save your **.blend** file to keep your picker.
 
-**Delete Scene Save** removes only the picker embedded in the current Maya
-scene. **Delete Rig Save** permanently removes only the reusable rig preset.
-**Reset Picker** clears the open picker without deleting either saved copy.
-Opening a new Maya scene also resets the open picker automatically.
+## Everyday controls
 
-Each rig tab has independent **Show IK** and **Show FK** buttons. Names with
-clear IK/FK tokens are classified automatically. For any other naming system,
-select the controls in Maya and use **Set IK**, **Set FK**, or **Set Other**.
-In Edit Layout, the same classification is available by right-clicking an
-individual controller.
+- **Capture view:** take a character reference picture.
+- **Delete capture:** remove the picture and keep the buttons.
+- **Add selected:** add several selected controls together.
+- **Body / Face / Fingers:** focus on the controls you need.
+- **Blue = left · Red = right · Yellow = center.** Shift adds; Ctrl toggles.
 
-The picker automatically:
+Maya also provides **Customize** for moving buttons and **How to use** for a short guide. **All controls** exposes extra controls in both applications.
 
-- separates Human and Quadrupeds into clear tabs;
-- keeps independent Human Body and Facial views;
-- keeps independent Quadruped Body Left, Body Right, and Facial views;
-- detects the camera-nearest quadruped leg set independently in every side
-  screenshot, so a blue-side view keeps blue legs and a red-side view keeps red
-  legs regardless of the panel's Left/Right name;
-- recognizes the wide eye-aim rectangle with its left/right oval controls,
-  scales the cluster into a compact diagram, and docks it to the right of Human
-  or Quadruped Facial screenshots;
-- detects tongue and teeth controls from the same rig and preserves their curve
-  arrangement in a compact group directly below the docked eye-aim diagram;
-- saves each screenshot's Maya camera projection so controllers can be selected
-  and added after the images are captured;
-- clears the selection highlight and temporarily hides controller curves only
-  while taking the clean screenshot;
-- projects every control pivot into the matching screenshot coordinates;
-- ignores selected mesh geometry, joints, and other non-controller objects;
-- embeds the rig image directly in the picker and scene data;
-- projects the selected NURBS controller curves themselves over the rig image,
-  sampling the evaluated curves to preserve their real smooth shape, position,
-  and viewport color;
-- reads Maya viewport override colors;
-- keeps full DAG paths and Maya UUIDs for referenced/namespaced rigs;
-- updates Maya selection when buttons are clicked.
+This beta recognizes common controller names. Use **All controls** and **Add selected** for unusual rigs. Blender currently supports armature pose controllers. Full verification details are included in each ZIP.
 
-Controls outside the current camera view are placed in a compact tray below the
-image, so no selected controller is lost. Use the **Rig Image** toggle to compare
-the image-backed picker with the control layout alone. **Remove Screenshot**
-deletes only that panel's image and keeps its controller shapes.
-
-Normal click replaces the selection, Shift-click toggles a control, and
-Ctrl-click removes a control. Right-click a button to select, add, set a key,
-or frame it in the viewport.
-
-Drag a box across picker controllers to select several at once. Shift-drag
-toggles the boxed controls, Ctrl-drag removes them, Ctrl+Shift-drag adds them,
-and Alt-drag pans the picker without selecting.
-
-## Scene and JSON storage
-
-**Save to Scene** stores the picker JSON and compressed viewport image on a Maya
-`network` node. The rig is not modified. Save the `.ma` or `.mb` scene afterward
-to persist it.
-
-Use **Export JSON** to share or back up a layout. If controls are in a different
-namespace when it is imported, Universal Picker first tries the Maya UUID and
-then an unambiguous controller name.
-
-## Important rig-agnostic behavior
-
-Each saved viewport projection is camera-accurate: buttons begin where their
-controls appear in its Body or Face image. If several controls overlap,
-Universal Picker separates their buttons slightly to keep every control
-clickable.
-
-The tool selects controls; it does not edit constraints, animation, the rig
-hierarchy, or referenced rig files.
-
-## Optional Maya command plug-in
-
-The shelf button opens the tool directly. Pipeline users can instead load the
-included Python command plug-in:
-
-```python
-from maya import cmds
-
-cmds.loadPlugin("universalPicker.py", quiet=True)
-cmds.universalPicker()
-```
-
-## Add or repair the UP shelf button
-
-After Universal Picker is installed, switch Maya's command line or Script
-Editor to **Python** and run:
-
-```python
-import universal_picker; universal_picker.install_shelf_button(); universal_picker.show()
-```
-
-This creates or updates the button on the currently selected shelf, assigns the
-included cyan UP icon, and opens the picker.
-
-## Development verification
-
-Run the pure-Python checks outside Maya:
-
-```bash
-python3 -m unittest discover -s tests -v
-```
-
-The test suite covers Human and Quadruped pages, IK/FK classification, saved
-camera projection, embedded-image persistence, off-camera controls,
-deterministic placement, collision prevention, schema validation, and JSON
-round trips.
+[Latest release and checksums](https://github.com/BiancaBarg/universal-picker/releases/latest)
